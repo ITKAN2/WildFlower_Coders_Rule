@@ -1,0 +1,28 @@
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+@TeleOp(name = "MyTeleOp", group = "MyRobot")
+public class MyTeleOp extends LinearOpMode {
+    HardwareMap hardwareMap;
+    DcMotor leftMotor;
+    DcMotor rightMotor;
+
+    @Override
+    public void init() {
+        hardwareMap = hardwareMap;
+        leftMotor = hardwareMap.get(DcMotor.class, "left_motor");
+        rightMotor = hardwareMap.get(DcMotor.class, "right_motor");
+    }
+
+    @Override
+    public void runOpMode() {
+        while (opModeIsActive()) {
+            double leftPower = gamepad1.left_stick_y;
+            double rightPower = gamepad1.right_stick_y;
+            leftMotor.setPower(leftPower);
+            rightMotor.setPower(rightPower);
+        }
+    }
+}
