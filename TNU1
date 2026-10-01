@@ -26,3 +26,5 @@ public class MyTeleOp extends LinearOpMode {
         }
     }
 }
+git clone https://github.com/username/repository.git
+cd repository
