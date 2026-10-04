@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name = "Gamepad Motor Control", group = "Linear OpMode")
-public class TNU extends LinearOpMode {
+public class DI extends LinearOpMode {
 
     // Declare all motor variables
     private DcMotor testMotor = null;
