@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode;  // for the imports
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode; // an imports
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp; // an imports
+import com.qualcomm.robotcore.hardware.Servo; // an imports
 
-@TeleOp(name = "Servo X Button Control", group = "TeleOp")
-public class ServoControlOpMode extends LinearOpMode {
+@TeleOp(name = "Servo", group = "TeleOp")
+public class Flower extends LinearOpMode {   // the class
 
     // Declare the servo object
     private Servo myServo;
@@ -24,8 +24,8 @@ public class ServoControlOpMode extends LinearOpMode {
         // Set an initial position before the match starts
         myServo.setPosition(POSITION_90_DEG);
 
-        telemetry.addData("Status", "Initialized. Waiting for start...");
-        telemetry.update();
+        telemetry.addData("Status", "Initialized. Waiting for start..."); // for the Driver Station
+        telemetry.update(); // update driver station
 
         waitForStart();
 
@@ -40,9 +40,9 @@ public class ServoControlOpMode extends LinearOpMode {
             }
 
             // Send feedback to the Driver Station
-            telemetry.addData("Servo Position", myServo.getPosition());
-            telemetry.addData("X Button Pressed", gamepad1.x);
-            telemetry.update();
+            telemetry.addData("Servo Position", myServo.getPosition()); // for the Driver Station
+            telemetry.addData("X Button Pressed", gamepad1.x); // for the Driver Station
+            telemetry.update(); // update the Driver Station
         }
     }
 }
