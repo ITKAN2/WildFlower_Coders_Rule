@@ -1,1 +1,109 @@
-create
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
+@Autonomous(name = "Wildflower Auto", group = "Autonomous")
+public class WildflowerAuto extends LinearOpMode {
+
+    private DcMotor intake;
+    private DcMotor transfr;
+    private DcMotor shootr;
+
+    private DcMotor fr;
+    private DcMotor br;
+    private DcMotor bl;
+    private DcMotor fl;
+
+    @Override
+    public void runOpMode() throws InterruptedException {
+
+        // Drive Motors
+        fr = hardwareMap.get(DcMotor.class, "fr");
+        br = hardwareMap.get(DcMotor.class, "br");
+        bl = hardwareMap.get(DcMotor.class, "bl");
+        fl = hardwareMap.get(DcMotor.class, "fl");
+
+        // Mechanisms
+        intake = hardwareMap.get(DcMotor.class, "intak");
+        transfr = hardwareMap.get(DcMotor.class, "transfer");
+        shootr = hardwareMap.get(DcMotor.class, "shooter");
+
+        // Same directions as TeleOp
+        fr.setDirection(DcMotorSimple.Direction.REVERSE);
+        br.setDirection(DcMotorSimple.Direction.REVERSE);
+
+        fl.setDirection(DcMotorSimple.Direction.FORWARD);
+        bl.setDirection(DcMotorSimple.Direction.FORWARD);
+
+        telemetry.addData("Status", "Initialized");
+        telemetry.update();
+
+        waitForStart();
+
+        if (opModeIsActive()) {
+
+            // ==================================
+            // Drive Forward
+            // ==================================
+            driveForward(0.7);
+            sleep(2000);
+            stopDrive();
+
+            // ==================================
+            // Spin Shooter Up
+            // ==================================
+            shootr.setPower(1.0);
+            sleep(3000);
+
+            // ==================================
+            // Feed Game Pieces
+            // ==================================
+            transfr.setPower(1.0);
+            intake.setPower(1.0);
+
+            sleep(2000);
+
+            transfr.setPower(0);
+            intake.setPower(0);
+            shootr.setPower(0);
+
+            // ==================================
+            // Strafe Right
+            // ==================================
+            strafeRight(0.6);
+            sleep(1200);
+            stopDrive();
+
+            // ==================================
+            // Move Forward
+            // ==================================
+            driveForward(0.6);
+            sleep(1000);
+            stopDrive();
+        }
+    }
+
+    private void driveForward(double power) {
+        fl.setPower(power);
+        fr.setPower(power);
+        bl.setPower(power);
+        br.setPower(power);
+    }
+
+    private void strafeRight(double power) {
+        fl.setPower(power);
+        fr.setPower(-power);
+        bl.setPower(-power);
+        br.setPower(power);
+    }
+
+    private void stopDrive() {
+        fl.setPower(0);
+        fr.setPower(0);
+        bl.setPower(0);
+        br.setPower(0);
+    }
+}
