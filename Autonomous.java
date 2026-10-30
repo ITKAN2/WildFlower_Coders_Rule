@@ -34,8 +34,7 @@ public class WildflowerAuto extends LinearOpMode {
         fr = hardwareMap.get(DcMotor.class, "fr");
         bl = hardwareMap.get(DcMotor.class, "bl");
         br = hardwareMap.get(DcMotor.class, "br");
-
-        intake = hardwareMap.get(DcMotor.class, "intak");
+        intak = hardwareMap.get(DcMotor.class, "intak");
         transfer = hardwareMap.get(DcMotor.class, "transfer");
         shooter = hardwareMap.get(DcMotor.class, "shooter");
 
@@ -70,7 +69,7 @@ public class WildflowerAuto extends LinearOpMode {
         telemetry.update();
 
         driveForward(DRIVE_POWER);
-        sleep(2000);
+        sleep(3000);
         stopDrive();
 
         //
@@ -91,7 +90,7 @@ public class WildflowerAuto extends LinearOpMode {
         intake.setPower(1.0);
         transfer.setPower(1.0);
 
-        sleep(2000);
+        sleep(3000);
 
         intake.setPower(0);
         transfer.setPower(0);
@@ -104,7 +103,7 @@ public class WildflowerAuto extends LinearOpMode {
         telemetry.update();
 
         strafeRight(STRAFE_POWER);
-        sleep(1200);
+        sleep(2000);
         stopDrive();
 
         //
@@ -143,3 +142,50 @@ public class WildflowerAuto extends LinearOpMode {
         br.setPower(0);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+ while (opModeIsActive()) {
+
+      // fl.setPower(1.0);   
+     //  fr.setPower(1.0);     
+      // bl.setPower(1.0);     
+     //  br.setPower(1.0); 
+     double forwardPower = 1.0;
+     double backwardPower = -1.0;
+        bl.setPower(forwardPower);
+        br.setPower(forwardPower);
+        fr.setPower(forwardPower);
+        fl.setPower(forwardPower);
+     sleep.(2000)
+
+        bl.setPower(backwardPower);
+        br.setPower(forwardPower);
+        fr.setPower(backwardPower);
+        fl.setPower(forwardPower);
+     sleep.(1000)
+        bl.setPower(backwardPower);
+        br.setPower(backwardPower);
+        fr.setPower(backwardPower);
+        fl.setPower(backwardPower);
+     sleep.(1000)
+        intak.setPower(forwardPower);
+        transfer.setPower(forwardPower);
+        shooter.setPower(forwardPower);
+
+         
+     
+
+    
+
+
+
+     
