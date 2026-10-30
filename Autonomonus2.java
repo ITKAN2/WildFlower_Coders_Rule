@@ -28,17 +28,22 @@ telemetry.addLine("It is running!");
      //  br.setPower(1.0); 
      double forwardPower = 1.0;
      double backwardPower = -1.0;
+        intak.setPower(forwardPower);
+        transfer.setPower(forwardPower);
         bl.setPower(forwardPower);
         br.setPower(forwardPower);
         fr.setPower(forwardPower);
         fl.setPower(forwardPower);
      sleep.(2000)
-
+        intak.setPower(forwardPower);
+        transfer.setPower(forwardPower);
         bl.setPower(backwardPower);
         br.setPower(forwardPower);
         fr.setPower(backwardPower);
         fl.setPower(forwardPower);
      sleep.(1000)
+        intak.setPower(forwardPower);
+        transfer.setPower(forwardPower);
         bl.setPower(backwardPower);
         br.setPower(backwardPower);
         fr.setPower(backwardPower);
