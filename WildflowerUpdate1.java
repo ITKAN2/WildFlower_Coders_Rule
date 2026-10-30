@@ -91,18 +91,14 @@ public class Wildflowermain extends LinearOpMode {
             // =====================================
             // Intake + Transfer Together
             // =====================================
-
-            if (gamepad2.a) {
-
+            if (gamepad2.right_trigger > 0.1){
+            //if (gamepad2.a) {
                 intake.setPower(1.0);
                 transfr.setPower(1.0);
-
             }
-            else if (gamepad2.b) {
-
+            else if (gamepad2.left_trigger > 0.1){
                 intake.setPower(-1.0);
                 transfr.setPower(-1.0);
-
             }
             else {
 
